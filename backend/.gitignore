@@ -3,3 +3,4 @@ Database
 package.json
 yarn.lock
 Uploads
+smtp.js
