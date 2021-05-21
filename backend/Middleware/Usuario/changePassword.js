@@ -20,14 +20,15 @@ const transporter = nodemailer.createTransport({
 });
 
 async function sendEmail(email, newPassword){
-    const mail = await transporter.sendMail({
+    /*const mail = */
+    await transporter.sendMail({
         text: `Você solicitou recuperação de senha para o site: PETBOOK.COM.
         Sua nova senha é: ${newPassword}`,
         subject:`Redefinição de senha PETBOOK`,
         from: "Suporte Petbook <aula.teste.90@gmail.com>",
         to: `${email}`,
     });
-    console.log(mail);
+    //console.log(mail);
 }
 
 
