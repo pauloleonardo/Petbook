@@ -27,5 +27,20 @@ async function updateAccessInPost(newAccess, id_post){
     await conn.query(sql, dataUpdate);
 }
 
+async function updatePost(titulo_post, conteudo_post, peso, idade, imagem, id_post){
+    const conn = await database.connect();
+    const sql = "UPDATE tbl_postagem set titulo_post = ?, conteudo_post = ?, peso = ?, idade=?, imagem=? where id_post =?";
+    const data = [titulo_post, conteudo_post, peso, idade, imagem, id_post];
 
-export default {listPost, createPost, listSpecificPost, updateAccessInPost};
+    await conn.query(sql, data);
+}
+async function getIdUser(id_post){
+    const conn = await database.connect();
+    const sql = "SELECT fk_id_usuario FROM tbl_postagem where id_post = ?";
+    const [rows] = await conn.query(sql, id_post);
+    return rows;
+
+}
+
+
+export default {listPost, createPost, listSpecificPost, updateAccessInPost, updatePost, getIdUser};
