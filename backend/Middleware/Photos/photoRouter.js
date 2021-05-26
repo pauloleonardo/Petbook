@@ -1,4 +1,5 @@
-import express, { response } from 'express';
+import express from 'express';
+import db from "./photoQuery.js";
 
 const router = express.Router();
 
